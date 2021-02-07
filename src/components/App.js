@@ -1,5 +1,6 @@
 import React, {useState, useEffect, Fragment} from "react";
 import {getData} from "../services";
+import Title from "./Title";
 import Catalogue from "./Catalogue";
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
 
     return (
         <Fragment>
+            <Title/>
             <Catalogue categories={data}/>
         </Fragment>
     )
