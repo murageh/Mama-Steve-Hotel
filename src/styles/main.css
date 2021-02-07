@@ -1,0 +1,68 @@
+body{
+    background: #202020;
+    padding: 0;
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1{
+    text-align: left;
+    padding: 10px;
+    font-weight: normal;
+    font-size: 1.5em;
+    color: orangered;
+    background: #202020;
+    box-shadow: 0 2px 3px 1px #101010;
+    margin: 0;
+}
+
+.item{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    justify-content: space-between;
+}
+
+.item-name{
+    font-size: 16px;
+    color: orangered;
+}
+
+.item-price{
+    font-size: 16px;
+    color: white;
+}
+
+.category{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.category p{
+    text-align: left;
+    color: dodgerblue;
+    font-size: 18px;
+    padding: 5px 10px;
+}
+
+.category-list, .catalogue-list{
+    list-style: none;
+    padding: 5px;
+}
+
+.catalogue{
+    width: 95%;
+    max-width: 700px;
+    border-radius: 10px;
+    box-shadow: 0 0 4px 1px #101010;
+    margin: 30px auto;
+}
+
+.catalogue>p{
+    font-size: 20px;
+    color: dodgerblue;
+    padding: 10px;
+    margin: 0;
+    border-bottom: solid 1px orangered;
+}

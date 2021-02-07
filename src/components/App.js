@@ -1,7 +1,28 @@
 import React, {useState, useEffect, Fragment} from "react";
+import {getData} from "../services";
+import Catalogue from "./Catalogue";
 
 const App = () => {
-    return null
+    const [data, setData] = useState({});
+
+    useEffect(() => {
+        let mounted = true;
+        getData().then((fetched_data) => {
+                if(mounted) {
+                    setData(fetched_data);
+                }
+            }
+        )
+        return () => {
+            mounted = false;
+        }
+    }, []);
+
+    return (
+        <Fragment>
+            <Catalogue categories={data}/>
+        </Fragment>
+    )
 }
 
 export default App;
