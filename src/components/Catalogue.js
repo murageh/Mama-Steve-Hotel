@@ -2,17 +2,26 @@ import React, {useState, useEffect} from "react";
 import Category from "./Category";
 import AddItem from "./AddItem";
 import UpdateItem from "./UpdateItem";
+import DeleteItem from "./DeleteItem";
 
 
 const Catalogue = (props) => {
     const {data, setData} = props;
     const [showAddDialog, setShowAddDialog] = useState(false);
     const [updateItem, setShowUpdateDialog] = useState(false);
+    const [deleteItem, setShowDeleteDialog] = useState(false);
 
-    const onAddItem = (item) => {
+    // Performs update and addition of items
+    const onModifyItem = (item) => {
         let new_data = {};
         new_data[item["name"]] = {price: item["price"], category: item["category"]};
         setData({...data, ...new_data});
+    }
+
+    const onDeleteItem = (item) => {
+        const new_data = {...data};
+        delete new_data[item["name"]];
+        setData(new_data);
     }
 
     const onAddClose = () => {
@@ -23,8 +32,13 @@ const Catalogue = (props) => {
         setShowUpdateDialog(false);
     }
 
-    const showUpdateCallback = (itemData) => {
-        setShowUpdateDialog(itemData);
+    const onDeleteClose = () => {
+        setShowDeleteDialog(false);
+    }
+
+    const bypass = (item) => {
+        console.log(item);
+        setShowDeleteDialog(item)
     }
 
     const getCategorised = () => {
@@ -50,21 +64,36 @@ const Catalogue = (props) => {
             <ul className={"catalogue-list"}>
                 {
                     Object.entries(getCategorised()).map(([category_name, items]) => {
-                        return <Category key={category_name} items={items} name={category_name} setShowUpdate={showUpdateCallback}/>;
+                        return (
+                            <Category
+                                key={category_name}
+                                items={items}
+                                name={category_name}
+                                setShowUpdate={setShowUpdateDialog}
+                                setShowDelete={bypass}
+                            />
+                        );
                     })
                 }
             </ul>
             {showAddDialog ?
                 <AddItem
-                    onAction={onAddItem}
+                    onAction={onModifyItem}
                     onClose={onAddClose}
                 /> : null
             }
             {updateItem ?
                 <UpdateItem
-                    onAction={onAddItem}
+                    onAction={onModifyItem}
                     onClose={onUpdateClose}
                     itemData={updateItem}
+                /> : null
+            }
+            {deleteItem ?
+                <DeleteItem
+                    onAction={onDeleteItem}
+                    onClose={onDeleteClose}
+                    itemData={deleteItem}
                 /> : null
             }
         </div>

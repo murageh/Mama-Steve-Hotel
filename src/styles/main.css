@@ -41,14 +41,20 @@ h1{
     flex-grow: 0;
 }
 
-.edit-btn{
+.edit-btn, .delete-btn{
     flex-grow: 0;
     min-width: unset;
-    border-radius: 50%;
+    border-radius: 10px;
     background: transparent;
     border: solid 1px dodgerblue;
     color: dodgerblue;
     font-size: 11px;
+}
+
+.delete-btn{
+    border: solid 1px orangered;
+    color: orangered;
+    margin-left: 5px;
 }
 
 .category{
@@ -187,4 +193,15 @@ button{
     flex-grow: 0;
     flex-shrink: 0;
     align-items: center;
+}
+
+.delete-prompt{
+    color: orangered;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.delete-prompt span{
+    font-style: italic;
+    color: darkcyan;
 }
