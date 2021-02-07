@@ -5,6 +5,11 @@ body{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+#root{
+    height: 100vh;
+    width: 100%;
+}
+
 h1{
     text-align: left;
     padding: 10px;
@@ -43,7 +48,8 @@ h1{
     text-align: left;
     color: dodgerblue;
     font-size: 18px;
-    padding: 5px 10px;
+    padding: 5px;
+    margin: 5px;
 }
 
 .category-list, .catalogue-list{
@@ -51,18 +57,116 @@ h1{
     padding: 5px;
 }
 
+.catalogue-list{
+    overflow-x: auto;
+    flex-grow: 1;
+}
+
 .catalogue{
     width: 95%;
     max-width: 700px;
+    height: 85vh;
     border-radius: 10px;
     box-shadow: 0 0 4px 1px #101010;
     margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
 }
 
-.catalogue>p{
+.catalogue>p, .dialog>p{
     font-size: 20px;
     color: dodgerblue;
     padding: 10px;
     margin: 0;
     border-bottom: solid 1px orangered;
+    display: flex;
+    justify-content: space-between;
+}
+
+.catalogue>p {
+    height: 30px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.overlay{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(255, 255, 255, 0.2);
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialog{
+    max-width: 400px;
+    width: 95%;
+    background: #202020;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 0 4px 1px #101010;
+}
+
+.dialog>p{
+    margin-bottom: 20px;
+}
+
+.button-bar{
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.button-bar button{
+    margin-left: 30px;
+}
+
+button{
+    padding: 5px;
+    background: orangered;
+    color: #202020;
+    border-radius: 10px;
+    outline: none;
+    min-width: 60px;
+    border: none;
+}
+
+.input-row{
+    display: flex;
+    border-radius: 5px;
+    align-items: stretch;
+    margin: 10px;
+    padding: 0 5px 0 5px;
+    box-shadow: 0 0 4px 1px #404040;
+}
+
+.input-row input, .input-row select{
+    border: none;
+    outline: none;
+    width: 70%;
+    background: transparent;
+    color: white;
+    padding: 10px;
+}
+
+.input-row select{
+    color: orangered;
+}
+
+.input-row label{
+    width: 30%;
+    font-size: 15px;
+    color: dodgerblue;
+    border-right: solid 1px orangered;
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    align-items: center;
 }
