@@ -7,24 +7,18 @@ const App = () => {
     const [data, setData] = useState({});
 
     useEffect(() => {
-        let mounted = true;
         getData().then((fetched_data) => {
-                if(mounted) {
-                    setData(fetched_data);
-                }
+                setData(fetched_data);
             }
         )
-        return () => {
-            mounted = false;
-        }
     }, []);
 
     return (
         <Fragment>
             <Title/>
-            <Catalogue categories={data}/>
+            <Catalogue data={data} setData={setData}/>
         </Fragment>
-    )
+    );
 }
 
 export default App;

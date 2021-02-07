@@ -11,8 +11,8 @@ const Category = (props) => {
             <p>{name}</p>
             <ul className={"category-list"}>
                 {
-                    items.map(({name, category, price}) => {
-                        return <Item key={name} name={name} category={category} price={price}/>
+                    items.map(({item_name, item_price}) => {
+                        return <Item key={item_name} name={item_name} category={name} price={item_price}/>;
                     })
                 }
             </ul>

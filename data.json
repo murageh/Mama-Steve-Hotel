@@ -1,16 +1,10 @@
 {
-  "fruits": [
-    {"name": "banana", "price": 10},
-    {"name": "oranges", "price": 15},
-    {"name": "pineapple", "price": 25}
-  ],
-  "vegetables":[
-    {"name": "cabbage", "price":  40},
-    {"name": "kales", "price": 10}
-  ],
-  "meat": [
-    {"name": "goat", "price": 300},
-    {"name": "cow", "price": 200},
-    {"name": "pig", "price": 400}
-  ]
+  "banana": {"price": 10, "category":  "fruits"},
+  "oranges": { "price": 15, "category":  "fruits"},
+  "pineapple": { "price": 25, "category":  "fruits"},
+  "cabbage": { "price":  40, "category":  "vegetables"},
+  "kales": { "price": 10, "category":  "vegetables"},
+  "goat": {"price": 300, "category":  "meat"},
+  "cow": {"price": 200, "category":  "meat"},
+  "pig": {"price": 400, "category":  "meat"}
 }
