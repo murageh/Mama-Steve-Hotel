@@ -25,17 +25,30 @@ h1{
     display: flex;
     align-items: center;
     padding: 5px;
-    justify-content: space-between;
+    justify-content: stretch;
 }
 
 .item-name{
     font-size: 16px;
     color: orangered;
+    flex-grow: 1;
 }
 
 .item-price{
     font-size: 16px;
     color: white;
+    width: 60px;
+    flex-grow: 0;
+}
+
+.edit-btn{
+    flex-grow: 0;
+    min-width: unset;
+    border-radius: 50%;
+    background: transparent;
+    border: solid 1px dodgerblue;
+    color: dodgerblue;
+    font-size: 11px;
 }
 
 .category{
@@ -154,6 +167,11 @@ button{
     background: transparent;
     color: white;
     padding: 10px;
+}
+
+.input-row input:disabled{
+    font-style: italic;
+    color: gray;
 }
 
 .input-row select{

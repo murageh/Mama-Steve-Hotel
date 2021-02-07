@@ -25,6 +25,7 @@ const AddItem = (props) => {
             setItem={setItem}
             onClose={onClose}
             onAction={addItem}
+            disableName={false}
         />
     )
 }

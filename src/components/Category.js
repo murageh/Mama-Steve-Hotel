@@ -4,7 +4,7 @@ import "../styles/main.css";
 
 
 const Category = (props) => {
-    const {items, name} = props;
+    const {items, name, setShowUpdate} = props;
 
     return(
         <div className={"category"}>
@@ -12,7 +12,13 @@ const Category = (props) => {
             <ul className={"category-list"}>
                 {
                     items.map(({item_name, item_price}) => {
-                        return <Item key={item_name} name={item_name} category={name} price={item_price}/>;
+                        return <Item
+                            key={item_name}
+                            name={item_name}
+                            category={name}
+                            price={item_price}
+                            setShowUpdate={setShowUpdate}
+                        />;
                     })
                 }
             </ul>

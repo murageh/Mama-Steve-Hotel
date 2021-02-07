@@ -6,7 +6,9 @@ import Dialog from "./Dialog";
 
 const Editor_ = (props) => {
 
-    const {setItem, item} = props;
+    // disableName allows changes to name attribute to be prevented
+    // This is because name is the primary key
+    const {setItem, item, disableName} = props;
 
     const editItemField = (field) => {
         setItem({...item, ...field});
@@ -16,14 +18,22 @@ const Editor_ = (props) => {
         <div className={"editor"}>
             <TextInput
                 label={"Name"}
-                onChange={(e) => editItemField({name: e.target.value})}
+                initialValue={item["name"]}
+                disabled={disableName}
+                // do not allow changes to name if disableName is true
+                {...(disableName ?
+                    {} :
+                    {onChange: (e) => editItemField({name: e.target.value})})
+                }
             />
             <TextInput
                 label={"Price"}
+                initialValue={item["price"]}
                 onChange={(e) => editItemField({price: e.target.value})}
             />
             <SelectInput
                 label={"Category"}
+                initialValue={item["category"]}
                 onChange={(e) => editItemField({category: e.target.value})}
                 options={["fruits", "vegetables", "meat"]}
             />

@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from "react";
 import Category from "./Category";
 import AddItem from "./AddItem";
+import UpdateItem from "./UpdateItem";
 
 
 const Catalogue = (props) => {
     const {data, setData} = props;
     const [showAddDialog, setShowAddDialog] = useState(false);
+    const [updateItem, setShowUpdateDialog] = useState(false);
 
     const onAddItem = (item) => {
         let new_data = {};
@@ -13,8 +15,16 @@ const Catalogue = (props) => {
         setData({...data, ...new_data});
     }
 
-    const onClose = () => {
+    const onAddClose = () => {
         setShowAddDialog(false);
+    }
+
+    const onUpdateClose = () => {
+        setShowUpdateDialog(false);
+    }
+
+    const showUpdateCallback = (itemData) => {
+        setShowUpdateDialog(itemData);
     }
 
     const getCategorised = () => {
@@ -40,14 +50,21 @@ const Catalogue = (props) => {
             <ul className={"catalogue-list"}>
                 {
                     Object.entries(getCategorised()).map(([category_name, items]) => {
-                        return <Category key={category_name} items={items} name={category_name}/>;
+                        return <Category key={category_name} items={items} name={category_name} setShowUpdate={showUpdateCallback}/>;
                     })
                 }
             </ul>
             {showAddDialog ?
                 <AddItem
                     onAction={onAddItem}
-                    onClose={onClose}
+                    onClose={onAddClose}
+                /> : null
+            }
+            {updateItem ?
+                <UpdateItem
+                    onAction={onAddItem}
+                    onClose={onUpdateClose}
+                    itemData={updateItem}
                 /> : null
             }
         </div>
