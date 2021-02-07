@@ -4,7 +4,7 @@ import "../styles/main.css";
 
 
 const Category = (props) => {
-    const {items, name, setShowUpdate} = props;
+    const {items, name, setShowUpdate, setShowDelete} = props;
 
     return(
         <div className={"category"}>
@@ -18,6 +18,7 @@ const Category = (props) => {
                             category={name}
                             price={item_price}
                             setShowUpdate={setShowUpdate}
+                            setShowDelete={setShowDelete}
                         />;
                     })
                 }
